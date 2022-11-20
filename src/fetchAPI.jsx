@@ -16,7 +16,7 @@ export const getSearchFilms = async query => {
 
 export const getMovieDetailsById = async id => {
     const respons = await axios.get(`movie/${id}?api_key=${KEY}&language=en-US`)
-    return respons.data.results;
+    return respons.data;
 }
 
 export const getMovieCredits = async id => {

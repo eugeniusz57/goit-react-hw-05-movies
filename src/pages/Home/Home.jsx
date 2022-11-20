@@ -8,7 +8,7 @@ const [popularFilms, setPopularFilms] = useState([]);
 
 useEffect(()=>{
   getTrendingFilms()
-  .then( results => setPopularFilms(results))
+  .then(setPopularFilms)
   .catch(error => console.error(error))
 }, [])
 
