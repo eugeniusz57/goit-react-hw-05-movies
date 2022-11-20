@@ -18,7 +18,7 @@ const genresStr =  genres && genres.map(({name}) => name).join(', ');
 
     return (
         <Box as="main">       
-        <>
+
         <Box display="flex">
             <Box>
                 <img width="200" src={poster_path ? `https://image.tmdb.org/t/p/w500/${poster_path}` : 'no_img' } alt="foto" />
@@ -29,21 +29,14 @@ const genresStr =  genres && genres.map(({name}) => name).join(', ');
                 <p>Overview </p><span>{overview}</span>
 
                 <p>Genres </p><span>{genresStr}</span>
-            </Box>
-                
-                
+            </Box>       
         </Box>
             <Box display="flex" flexDirection="column">
                 <NavLink  to="cast"> Cast</NavLink>
                 <NavLink to="reviews"> Reviews</NavLink>
             </Box>
-            <Outlet/>
-            </>           
-           
-        </Box>
-        
-            
-
+            <Outlet/>          
+        </Box>     
     )
 }
 
