@@ -1,11 +1,17 @@
 import { Toaster } from 'react-hot-toast';
 import { Route, Routes } from 'react-router-dom';
-import  NotFound  from "pages/NotFound";
+import { lazy } from 'react';
+import NotFound from 'pages/Error/Error';
 import { Layout } from './Layout/Layout';
-import  Home  from "../pages/Home/Home";
-import Movies from "../pages/Movies/Movies";
-import MoviesDetaile from "../pages/MoviesDetaile/MoviesDetaile";
+import { GlobalStyle } from './GlobalStyled';
 
+const Home = lazy(() => import('../pages/Home/Home'));
+const Movies = lazy(() => import('../pages/Movies/Movies'));
+const MoviesDetaile = lazy(() =>
+  import('../pages/MoviesDetaile/MoviesDetaile')
+);
+const Cast = lazy(() => import('./Cast/Cast'));
+const Reviews = lazy(() => import('./Reviews/Reviews'));
 
 export const App = () => {
   return (
@@ -13,15 +19,16 @@ export const App = () => {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
-          <Route path="movies" element={<Movies/>} />
-          <Route path='movies/:moviesId' element={<MoviesDetaile/>}>
-            <Route path='cast' element={<div>cast</div>} />
-            <Route path='reviews' element={<div>reviews</div>} />
+          <Route path="movies" element={<Movies />} />
+          <Route path="movies/:moviesId" element={<MoviesDetaile />}>
+            <Route path="cast" element={<Cast />} />
+            <Route path="reviews" element={<Reviews />} />
           </Route>
         </Route>
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Toaster position="top-right" reverseOrder={false} />
+      <GlobalStyle />
     </>
   );
 };
