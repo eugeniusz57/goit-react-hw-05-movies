@@ -53,8 +53,12 @@ const MoviesDetaile = () => {
         </Box>
       </Box>
       <Box display="flex" flexDirection="column">
-        <NavLinkMoviesDetail to="cast"> Cast</NavLinkMoviesDetail>
-        <NavLinkMoviesDetail to="reviews"> Reviews</NavLinkMoviesDetail>
+        <NavLinkMoviesDetail to="cast" state={{ from: backLinkHref }}>
+          Cast
+        </NavLinkMoviesDetail>
+        <NavLinkMoviesDetail to="reviews" state={{ from: backLinkHref }}>
+          Reviews
+        </NavLinkMoviesDetail>
       </Box>
       <Suspense fallback={null}>
         <Outlet />
