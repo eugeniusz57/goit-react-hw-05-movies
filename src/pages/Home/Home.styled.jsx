@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const Title = styled.h1`
@@ -6,7 +6,7 @@ export const Title = styled.h1`
   margin-bottom: 12px;
 `;
 
-export const NavLinks = styled(NavLink)`
+export const NavLinks = styled(Link)`
   color: #020f3e;
   letter-spacing: 1px;
   line-height: 1.4;
